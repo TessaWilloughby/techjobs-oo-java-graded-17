@@ -40,6 +40,22 @@ public class Job {
         return id == job.id;
     }
 
+    private String formatField(String field) {
+        return field.isEmpty() ? "Data not available" : field;
+    }
+    @Override
+    public String toString() {
+        String newline = System.lineSeparator();
+        return newline +
+                "ID: " + id + newline +
+                "Name: " + formatField(name) + newline +
+                "Employer: " + formatField(employer.toString()) + newline +
+                "Location: " + formatField(location.toString()) + newline +
+                "Position Type: " + formatField(positionType.toString()) + newline +
+                "Core Competency: " + formatField(coreCompetency.toString()) +
+                newline;
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(id);
